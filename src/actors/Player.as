@@ -24,7 +24,7 @@ package actors
 		{
 			maxSpeed = speed;
 			{
-				if (maximalesnelheid > 30) trace: "Maximale snelheid mag niet hoger dan 30 zijn"
+				if (maximalesnelheid > 30) trace: "Maximale snelheid mag niet hoger dan 30 zijn!"
 			}
 		}
 		private function init(e:Event):void 
