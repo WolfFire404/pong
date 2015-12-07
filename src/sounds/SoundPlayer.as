@@ -34,16 +34,16 @@ package sounds
 		
 		private function onIntro(e:Event):void 
 		{
-			playSound(4);
+			playSound(4,1,0.30,0);
 		}
 		
 		private function onGameOver(e:Event):void 
 		{
-			playSound(3);
+			playSound(3,1,0.30,0);
 		}		
 		private function onBounce(e:Event):void 
 		{
-			playSound(Math.floor(Math.random() * 3));
+			playSound(Math.floor(Math.random() * 3),1,0.10,0);
 		}
 		private function loadSound(file:String):void
 		{
@@ -59,7 +59,8 @@ package sounds
 			else
 			{			
 				var transform:SoundTransform = new SoundTransform(volume, pan);
-				_channel = _sounds[index].play(0,loops);
+				_channel = _sounds[index].play(0, loops);
+				_channel.soundTransform = transform;
 			}			
 		}	
 		

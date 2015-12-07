@@ -10,11 +10,23 @@ package actors
 	{
 		private var controller:Controller;
 		private var speed:Number = 0;
+		private var maxSpeed:Number = 30;
 		
 		public function Player() 
 		{
 			this.addEventListener(Event.ADDED_TO_STAGE, init);		
-		}		
+		}
+		public function get maximalesnelheid():Number
+		{
+			return maxSpeed;
+		}
+		public function set maximalesnelheid(speed:Number):void
+		{
+			maxSpeed = speed;
+			{
+				if (maximalesnelheid > 30) trace: "Maximale snelheid mag niet hoger dan 30 zijn"
+			}
+		}
 		private function init(e:Event):void 
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, init);
@@ -25,12 +37,13 @@ package actors
 		{
 			if (controller.up)
 			{
-				speed = -15;
+				speed = -maxSpeed;
 			}
 			else if(controller.down)
 			{
-				speed = 15;
-			}else
+				speed = maxSpeed;
+			}
+			else
 			{
 				if (speed > 0) speed--;
 				if (speed < 0) speed++;
